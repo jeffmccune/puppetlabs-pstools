@@ -45,7 +45,7 @@ define puppetlabs-sys::account(
   }
   user { "${name_real}":
     ensure => "present",
-    homedir => $homedir_real,
+    home => $homedir_real,
     uid => $uid_real,
     gid => $gid_real,
   }
