@@ -1,6 +1,6 @@
 # Class: puppetlabs-sys
 #
-# This module manages puppetlabs-sys
+# This module manages resources on puppet labs systems
 #
 # Parameters:
 #
@@ -11,6 +11,5 @@
 # Sample Usage:
 #
 class puppetlabs-sys {
-
 
 }
