@@ -16,7 +16,7 @@ define puppetlabs-sys::account(
   $gid,
   $groups=["0"],
   $email=false,
-  $comment="",)
+  $comment="")
 {
   $module = "puppetlabs-sys"
   $source = "puppet:///modules/${module}"
@@ -29,8 +29,8 @@ define puppetlabs-sys::account(
     false => "/home/${name_real}",
     default => $homedir,
   }
-  $uid_real => $uid ? { false => undef, default => $uid }
-  $gid_real => $gid ? { false => undef, default => $gid }
+  $uid_real = $uid ? { false => undef, default => $uid }
+  $gid_real = $gid ? { false => undef, default => $gid }
 ####
   File {
     owner => $uid_real,
@@ -55,7 +55,7 @@ define puppetlabs-sys::account(
       require => [ User["$name_real"], Group["$name_real"] ];
     "${homedir_real}/.bash_profile":
       mode => "0755",
-      source => "${source}/bash_profile",
+      source => "${source}/bash_profile";
     "${homedir_real}/.ssh":
       ensure => directory,
       mode => "0700";
